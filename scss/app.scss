@@ -1,0 +1,17 @@
+body {
+  background: #f3f3f3;
+}
+.calculator {
+  width: 500px;
+  background: white;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+}
+.display {
+  flex-basis: 30%;
+}
+.buttons {
+  flex-basis: 70%;
+  display: flex;
+}
