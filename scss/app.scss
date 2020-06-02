@@ -1,5 +1,8 @@
+$fontFamily: "Segoe UI";
+
 body {
   background: #f3f3f3;
+  font-family: $fontFamily;
 }
 .calculator {
   width: 500px;
@@ -9,9 +12,38 @@ body {
   flex-direction: column;
 }
 .display {
-  flex-basis: 30%;
+  height: 30%;
+  text-align: right;
+  padding: 0 20px;
+}
+.expression {
+  font-size: 1rem;
+  font-weight: 300;
+  height: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.result {
+  font-size: 3rem;
+  font-weight: 600;
+  height: 70%;
 }
 .buttons {
-  flex-basis: 70%;
-  display: flex;
+  display: grid;
+  height: 70%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+button {
+  font-family: $fontFamily;
+  border: none;
+  outline: none;
+  background: #f8f8f8;
+  font-weight: 600;
+  font-size: 1.4rem;
+  cursor: pointer;
+  &:hover {
+    background: #ebebeb;
+  }
 }
