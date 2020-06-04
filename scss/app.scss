@@ -1,16 +1,38 @@
 $fontFamily: "Segoe UI";
-
+* {
+  box-sizing: border-box;
+}
 body {
-  background: #f3f3f3;
+  background: url("../images/wallpaper.jpg") center center / cover no-repeat;
   font-family: $fontFamily;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+  overflow: hidden;
 }
 .calculator {
-  width: 500px;
-  background: white;
-  height: 360px;
+  width: 330px;
+  height: 480px;
+  background-color: rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  backdrop-filter: blur(20px);
+  border: 1px solid #323232;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  h1 {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 8px 12px;
+    cursor: default;
+  }
 }
+
 .display {
   height: 30%;
   text-align: right;
@@ -34,16 +56,60 @@ body {
   height: 70%;
   grid-template-columns: repeat(4, 1fr);
   gap: 2px;
+  padding: 4px;
 }
 button {
   font-family: $fontFamily;
   border: none;
   outline: none;
-  background: #f8f8f8;
+  background: #f1f1f1;
   font-weight: 600;
-  font-size: 1.4rem;
-  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: default;
   &:hover {
-    background: #ebebeb;
+    background: #d0d0d0;
+  }
+  &.single-operator,
+  &.operator,
+  &.control {
+    font-weight: 400;
+    background: #e3e3e3;
+    &:hover {
+      background: #d0d0d0;
+    }
+  }
+  &.single-operator,
+  &.control {
+    font-size: 1rem;
+  }
+  &.bg-white {
+    background: #f1f1f1;
+    &:hover {
+      background: #d0d0d0;
+    }
+  }
+  &.equal {
+    background: #6e9ec4;
+
+    &:hover {
+      background: #388cce;
+    }
+  }
+
+  .variable {
+    font-family: serif;
+    font-style: italic;
+    sup {
+      font-family: $fontFamily;
+    }
+  }
+}
+.undo {
+  background: #e3e3e3 url("../images/undo.svg") center center/ 1rem 1rem
+    no-repeat;
+  &:hover {
+    background: #d0d0d0 url("../images/undo.svg") center center/ 1rem 1rem
+      no-repeat;
   }
 }

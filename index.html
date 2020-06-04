@@ -10,12 +10,23 @@
 </head>
 
 <body>
-    <div class="calculator">
+    <div class="calculator" id="calculator">
+        <h1 id="titleBar">Calculator</h1>
         <div class="display">
             <div class="expression"></div>
             <div class="result">0</div>
         </div>
         <div class="buttons">
+
+            <button class="single-operator">%</button>
+            <button class="number control">CE</button>
+            <button class="number control">C</button>
+            <button class="number undo"></button>
+
+            <button class="single-operator"><sup>1</sup>/<span class="variable">x</span></button>
+            <button class="single-operator"><span class="variable">x</span><sup>2</sup></button>
+            <button class="single-operator">sqrt(x)</button>
+            <button class="operator">÷</button>
 
             <button class="number">7</button>
             <button class="number">8</button>
@@ -32,10 +43,10 @@
             <button class="number">3</button>
             <button class="operator">+</button>
 
-            <button class="operator">+/-</button>
+            <button class="single-operator bg-white">+/-</button>
             <button class="number">0</button>
             <button class="number">.</button>
-            <button class="operator">=</button>
+            <button class="operator equal">=</button>
 
         </div>
 
