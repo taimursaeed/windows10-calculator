@@ -3,7 +3,8 @@ $fontFamily: "Segoe UI";
   box-sizing: border-box;
 }
 body {
-  background: url("../images/wallpaper.jpg") center center / cover no-repeat;
+  background: #01a8f7 url("../images/wallpaper.jpg") center center / cover
+    no-repeat;
   font-family: $fontFamily;
   min-height: 100vh;
   padding: 20px;
@@ -31,6 +32,13 @@ body {
     padding: 8px 12px;
     cursor: default;
   }
+  &.maximize {
+    width: 100%;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none;
+  }
 }
 
 .display {
@@ -49,7 +57,9 @@ body {
 .result {
   font-size: 3rem;
   font-weight: 600;
-  height: 70%;
+  height: 60%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .buttons {
   display: grid;
@@ -66,21 +76,19 @@ button {
   font-weight: 600;
   font-size: 1.2rem;
   line-height: 1;
+  border-radius: none;
   cursor: default;
   &:hover {
     background: #d0d0d0;
   }
-  &.single-operator,
-  &.operator,
-  &.control {
+  &.dark {
     font-weight: 400;
     background: #e3e3e3;
     &:hover {
       background: #d0d0d0;
     }
   }
-  &.single-operator,
-  &.control {
+  &.dark {
     font-size: 1rem;
   }
   &.bg-white {
@@ -104,12 +112,12 @@ button {
       font-family: $fontFamily;
     }
   }
-}
-.undo {
-  background: #e3e3e3 url("../images/undo.svg") center center/ 1rem 1rem
-    no-repeat;
-  &:hover {
-    background: #d0d0d0 url("../images/undo.svg") center center/ 1rem 1rem
+  &.undo {
+    background: #e3e3e3 url("../images/undo.svg") center center/ 1rem 1rem
       no-repeat;
+    &:hover {
+      background: #d0d0d0 url("../images/undo.svg") center center/ 1rem 1rem
+        no-repeat;
+    }
   }
 }

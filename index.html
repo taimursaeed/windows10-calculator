@@ -18,35 +18,37 @@
         </div>
         <div class="buttons">
 
-            <button class="single-operator">%</button>
-            <button class="number control">CE</button>
-            <button class="number control">C</button>
-            <button class="number undo"></button>
+            <button class="dark" data-functionality="decimal" data-type="singleoperator">%</button>
+            <button class="dark" data-functionality="clearexpression" data-type="control">CE</button>
+            <button class="dark" data-functionality="clearall" data-type="control">C</button>
+            <button class="dark undo" data-functionality="undo" data-type="control"></button>
 
-            <button class="single-operator"><sup>1</sup>/<span class="variable">x</span></button>
-            <button class="single-operator"><span class="variable">x</span><sup>2</sup></button>
-            <button class="single-operator">sqrt(x)</button>
-            <button class="operator">÷</button>
+            <button class="dark" data-functionality="fraction" data-type="singleoperator"><sup>1</sup>/<span
+                    class="variable">x</span></button>
+            <button class="dark" data-functionality="power" data-type="singleoperator"><span
+                    class="variable">x</span><sup>2</sup></button>
+            <button class="dark" data-functionality="sqrt" data-type="singleoperator">sqrt(x)</button>
+            <button class="dark" data-functionality="divide" data-type="operator">÷</button>
 
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
-            <button class="operator">x</button>
+            <button data-type="number">7</button>
+            <button data-type="number">8</button>
+            <button data-type="number">9</button>
+            <button class="dark" data-functionality="multiply" data-type="operator">x</button>
 
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-            <button class="operator">-</button>
+            <button data-type="number">4</button>
+            <button data-type="number">5</button>
+            <button data-type="number">6</button>
+            <button class="dark" data-functionality="subtract" data-type="operator">-</button>
 
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button class="operator">+</button>
+            <button data-type="number">1</button>
+            <button data-type="number">2</button>
+            <button data-type="number">3</button>
+            <button class="dark" data-functionality="add" data-type="operator">+</button>
 
-            <button class="single-operator bg-white">+/-</button>
-            <button class="number">0</button>
-            <button class="number">.</button>
-            <button class="operator equal">=</button>
+            <button class="dark bg-white" data-functionality="negate" data-type="singleoperator">+/-</button>
+            <button data-type="number">0</button>
+            <button data-type="number" data-functionality="number">.</button>
+            <button class="equal" data-functionality="solve">=</button>
 
         </div>
 
