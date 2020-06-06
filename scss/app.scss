@@ -25,9 +25,10 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  transition: all 0.2s ease;
   h1 {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.8em;
     font-weight: 400;
     padding: 8px 12px;
     cursor: default;
@@ -38,6 +39,7 @@ body {
     top: 0 !important;
     left: 0 !important;
     transform: none;
+    font-size: 1.4rem;
   }
 }
 
@@ -47,7 +49,7 @@ body {
   padding: 0 20px;
 }
 .expression {
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: 300;
   height: 30%;
   display: flex;
@@ -55,7 +57,7 @@ body {
   align-items: center;
 }
 .result {
-  font-size: 3rem;
+  font-size: 3em;
   font-weight: 600;
   height: 60%;
   text-overflow: ellipsis;
@@ -74,7 +76,7 @@ button {
   outline: none;
   background: rgba(241, 241, 241, 0.9);
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   line-height: 1;
   border-radius: none;
   cursor: default;
@@ -89,7 +91,7 @@ button {
     }
   }
   &.dark {
-    font-size: 1rem;
+    font-size: 1em;
   }
   &.bg-white {
     background: rgba(241, 241, 241, 0.9);
@@ -114,10 +116,10 @@ button {
   }
   &.undo {
     background: rgba(227, 227, 227, 0.6) url("../images/undo.svg") center
-      center/ 1rem 1rem no-repeat;
+      center/ 1em 1em no-repeat;
     &:hover {
       background: rgba(208, 208, 208, 0.9) url("../images/undo.svg") center
-        center/ 1rem 1rem no-repeat;
+        center/ 1em 1em no-repeat;
     }
   }
 }
