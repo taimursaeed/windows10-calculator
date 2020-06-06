@@ -14,7 +14,7 @@ body {
 .calculator {
   width: 330px;
   height: 480px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -72,29 +72,29 @@ button {
   font-family: $fontFamily;
   border: none;
   outline: none;
-  background: #f1f1f1;
+  background: rgba(241, 241, 241, 0.9);
   font-weight: 600;
   font-size: 1.2rem;
   line-height: 1;
   border-radius: none;
   cursor: default;
   &:hover {
-    background: #d0d0d0;
+    background: rgba(208, 208, 208, 0.9);
   }
   &.dark {
     font-weight: 400;
-    background: #e3e3e3;
+    background: rgba(227, 227, 227, 0.6);
     &:hover {
-      background: #d0d0d0;
+      background: rgba(208, 208, 208, 0.9);
     }
   }
   &.dark {
     font-size: 1rem;
   }
   &.bg-white {
-    background: #f1f1f1;
+    background: rgba(241, 241, 241, 0.9);
     &:hover {
-      background: #d0d0d0;
+      background: rgba(208, 208, 208, 0.9);
     }
   }
   &.equal {
@@ -113,11 +113,11 @@ button {
     }
   }
   &.undo {
-    background: #e3e3e3 url("../images/undo.svg") center center/ 1rem 1rem
-      no-repeat;
+    background: rgba(227, 227, 227, 0.6) url("../images/undo.svg") center
+      center/ 1rem 1rem no-repeat;
     &:hover {
-      background: #d0d0d0 url("../images/undo.svg") center center/ 1rem 1rem
-        no-repeat;
+      background: rgba(208, 208, 208, 0.9) url("../images/undo.svg") center
+        center/ 1rem 1rem no-repeat;
     }
   }
 }
