@@ -2,13 +2,14 @@ const display = document.querySelector(".display");
 const dExpression = document.querySelector(".expression");
 const dResult = document.querySelector(".result");
 const buttons = document.querySelectorAll("button");
-let expResolved = false;
+const maximize = document.querySelector("#maximize");
+const calculator = document.querySelector("#calculator");
+let solved = false;
 let expression = ["0"];
 let currentInput = "0";
 let previousInput = "0";
 let currentInputType = "";
 let previousInputType = "number";
-let validExpression = false;
 let btnFunctionality;
 
 function handleButtonClick(e) {
@@ -18,12 +19,17 @@ function handleButtonClick(e) {
 
   if (currentInputType === "number") {
     //number
+    if (solved) {
+      expression = [];
+    }
 
     if (previousInputType === "number") {
       if (eval(expression.join("")) === 0) {
+        // if empty array
         previousInput = currentInput;
         expression = [];
       } else {
+        // if followed by number then combine numbers
         previousInput += currentInput;
         expression.pop();
       }
@@ -41,17 +47,20 @@ function handleButtonClick(e) {
   } else {
     //operator
 
+    solved = false;
     if (previousInputType === "operator" && btnFunctionality != "undo") {
       expression.pop();
     }
     switch (btnFunctionality) {
       case "clearall":
         expression = [];
-        currentInput = previousInput = "";
+        currentInput = previousInput = "0";
+        dResult.innerHTML = currentInput;
         break;
       case "clearexpression":
-        expression = [];
-        currentInput = "";
+        expression.pop();
+        currentInput = "0";
+        dResult.innerHTML = currentInput;
         break;
       case "undo":
         expression.length > 1 ? expression.pop() : (expression = []);
@@ -63,19 +72,17 @@ function handleButtonClick(e) {
         expression.unshift("1/");
         break;
       case "power":
-        expression.push(
-          "Math.pow(" +
-            eval(expression.join("")) +
-            "," +
-            eval(expression.join("")) +
-            ")"
-        );
+        expression.pop();
+        expression.push("Math.pow(" + previousInput + ",2)");
         break;
       case "sqrt":
         expression.pop();
         expression.push("Math.sqrt(" + previousInput + ")");
-        solve(expression);
-
+        break;
+      case "negate":
+        currentInput = -1 * parseInt(expression.pop());
+        expression.push(currentInput);
+        dResult.innerHTML = currentInput;
         break;
       case "add":
         expression.push("+");
@@ -103,22 +110,33 @@ buttons.forEach(function (ele) {
   ele.addEventListener("click", (e) => handleButtonClick(e));
 });
 
+maximize.addEventListener("click", (e) => {
+  calculator.style.transition = "";
+  calculator.classList.toggle("maximize");
+});
+
 function log(e) {
   console.log(e);
 }
 
 function solve(exp) {
   try {
-    dResult.innerText = eval(exp.join("")) || 0;
-    expResolved = true;
+    const result = eval(exp.join("")) || 0;
+    dResult.innerText = result;
+    expression = [];
+    expression.push(result);
+    solved = true;
   } catch (err) {
     dResult.innerText = "Error";
     log(err);
   }
 }
 
-// Dragging
-dragElement(document.getElementById("calculator"));
+///////////////////////////
+//      Dragging
+///////////////////////////
+
+dragElement(calculator);
 
 function dragElement(ele) {
   var pos1 = 0,
@@ -129,12 +147,15 @@ function dragElement(ele) {
   document.getElementById("titleBar").onmousedown = dragMouseDown;
 
   function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
+    calculator.style.transition = "none";
+    if (!calculator.classList.contains("maximize")) {
+      e = e || window.event;
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      document.onmousemove = elementDrag;
+    }
   }
 
   function elementDrag(e) {
